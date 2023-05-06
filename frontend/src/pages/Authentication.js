@@ -29,9 +29,9 @@ export const action = async ({request}) => {
   }
 
   // soon: manage that token
-  // const resData = await response.json();
-  // const token = resData.token;
-  // localStorage.setItem("token", token);
+  const resData = await response.json();
+  const token = resData.token;
+  localStorage.setItem("token", token);
 
   return redirect("/");
 }

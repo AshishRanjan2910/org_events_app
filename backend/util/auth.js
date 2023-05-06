@@ -20,6 +20,8 @@ function checkAuthMiddleware(req, res, next) {
   if (req.method === 'OPTIONS') {
     return next();
   }
+  // req.headers.authorization = req.headers.authorization
+  // || 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imt1c2hhZ3JhOTU3MjIzM0BnbWFpbC5jb20iLCJpYXQiOjE2ODM0MDQ0ODksImV4cCI6MTY4MzQwODA4OX0.JLVDv178QNd5LUVLTMk2UqLM0VP7YAnQtdAlanwUwz0';
   if (!req.headers.authorization) {
     console.log('NOT AUTH. AUTH HEADER MISSING.');
     return next(new NotAuthError('Not authenticated.'));

@@ -80,12 +80,11 @@ export async function loader({ request, params }) {
 export async function action({ params, request }) {
   const eventId = params.eventId;
   const token = getAuthToken();
-  console.log(token);
   const response = await fetch("http://localhost:8080/events/" + eventId, {
     method: request.method,
-    // headers: {
-    //   'Authorization': "Bearer " + token,
-    // },
+    headers: {
+      'Authorization': "Bearer " + token,
+    },
   });
 
   if (!response.ok) {
